@@ -1,0 +1,14 @@
+<div class="container">
+    <h2>Student List</h2>
+    <ul>
+      <li *ngFor="let student of students">
+        {{ student.sname }} - {{ student.sroolno }}
+      </li>
+    </ul>
+  
+    <h3>Add New Student</h3>
+    <input type="text" [(ngModel)]="newName" placeholder="Student Name" />
+    <input type="text" [(ngModel)]="newRollNo" placeholder="Roll Number" />
+    <button (click)="addStudent()">Add Student</button>
+  </div>
+  
