@@ -23,4 +23,12 @@ export class StudentService {
   addStudent(sname: string, sroolno: string): Observable<Student> {
     return this.http.post<Student>(`${this.baseUrl}/add/${sname}/${sroolno}`, {});
   }
+
+
+  // Add this method:
+  searchStudent(query: string): Observable<Student> {
+    return this.http.get<Student>(`${this.baseUrl}/search`, {
+      params: { query }
+    });
+  }
 }

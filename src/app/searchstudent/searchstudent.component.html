@@ -4,3 +4,19 @@
 
 
 <h2>If you want to search student from DB either enter name or Roll No </h2>
+
+<input
+  type="text"
+  [(ngModel)]="searchTerm"
+  placeholder="Enter name or roll number"
+>
+<button (click)="searchStudent()">Search</button>
+
+<!-- Show 'not found' message -->
+<p *ngIf="searchNotFound">Student not found.</p>
+
+<!-- Show student if found -->
+<div *ngIf="searchedStudent">
+  <h3>Search Result</h3>
+  <p>{{ searchedStudent.sname }} - {{ searchedStudent.sroolno }}</p>
+</div>
