@@ -5,30 +5,39 @@ import { StudentService, Student } from '../student.service';
 import { RouterModule } from '@angular/router';
 
 @Component({
-  selector: 'app-student',
-  standalone: true,
+  selector: 'app-addstudent',
   imports: [RouterModule,CommonModule, FormsModule],
-  templateUrl: './student.component.html',
- 
+  templateUrl: './addstudent.component.html',
+  styleUrl: './addstudent.component.css',
+  standalone: true,
+  
 
+ 
 })
-export class StudentComponent implements OnInit {
+export class AddstudentComponent  implements OnInit{
   students: Student[] = [];
   newName = '';
   newRollNo = '';
+  showStudents: boolean = false;
 
   constructor(private studentService: StudentService) {}
 
   ngOnInit() {
-    this.fetchStudents();
+    //this.fetchStudents();
   }
 
   fetchStudents() {
     this.studentService.getStudents().subscribe((data) => {
       this.students = data;
+      this.showStudents = true;
     });
   }
 
+
+  hideStudents() {
+    this.showStudents = false;
+  }
+  
   addStudent() {
     if (this.newName && this.newRollNo) {
       this.studentService.addStudent(this.newName, this.newRollNo).subscribe(() => {

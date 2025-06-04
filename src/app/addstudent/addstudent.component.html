@@ -1,0 +1,23 @@
+<h3>Add New Student</h3>
+    <input type="text" [(ngModel)]="newName" placeholder="Student Name" />
+    <input type="text" [(ngModel)]="newRollNo" placeholder="Roll Number" />
+    <button (click)="addStudent()">Add Student</button>
+    <h2>Get complete list of students </h2>
+
+
+
+<!-- Show "Load Students" button only when students are hidden -->
+<button *ngIf="!showStudents" (click)="fetchStudents()">Load Students</button>
+
+<!-- Show "Hide Students" button only when students are visible -->
+<button *ngIf="showStudents" (click)="hideStudents()">Hide Students</button>
+
+<!-- Display student list only when showStudents is true and students exist -->
+<div *ngIf="showStudents && students.length > 0">
+  <h2>Student List</h2>
+  <ul>
+    <li *ngFor="let student of students">
+      {{ student.sname }} - {{ student.sroolno }}
+    </li>
+  </ul>
+</div>

@@ -1,5 +1,12 @@
 <div class="container">
-    <h2>Student List</h2>
+  <h1> Hi!  Dear User Welcome to Student Management App </h1>
+
+  <h2> This App has following fetaures please select the one you wouldd like to make use of :</h2>
+  <h3>To Add New Student or Check Existing Students List Click here  ==> </h3>   <button [routerLink]="['/addstudent']">Add a student</button>
+  <h3> To Get Data of already Existing Student  New Student ==> </h3>   <button [routerLink]="['/searchstudent']">Search for a student from DB</button>
+
+  <!--
+  <h2>Student List</h2>
     <ul>
       <li *ngFor="let student of students">
         {{ student.sname }} - {{ student.sroolno }}
@@ -10,5 +17,13 @@
     <input type="text" [(ngModel)]="newName" placeholder="Student Name" />
     <input type="text" [(ngModel)]="newRollNo" placeholder="Roll Number" />
     <button (click)="addStudent()">Add Student</button>
+
+    <button [routerLink]="['/searchstudent']">Search for a student from DB</button>
   </div>
   
+
+  <div>
+    <button [routerLink]="['/searchstudent']">Search for a student from DB</button>
+  </div>
+
+-->
